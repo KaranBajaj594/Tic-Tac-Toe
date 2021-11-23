@@ -7,8 +7,29 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="./css/style.css">
+    <script>
+        function getInput(){
+            name1=document.getElementById("fname").value;
+            name2=document.getElementById("lname").value;
+            if(name1!="" && name2!=""){
+                document.querySelector(".player-X").innerHTML=name1;
+                document.querySelector(".player-O").innerHTML=name2;
+            }
+            document.querySelector(".ask").classList.remove("visibility");
+        }
+    </script>
 </head>
 <body>
+
+    <div class="ask">
+        <div class="UserName">
+                   <label for="fname"><h2>Enter Name of first player</h2></label>
+                   <input type="text" id="fname" name="firstName" placeholder="Enter 1st name" autocomplete="off">
+                   <label for="lname"><h2>Enter Name of second player</h2></label>
+                   <input type="text" id="lname" name="lastName" placeholder="Enter 2nd name" autocomplete="off">
+                   <button class="btn" onclick="getInput()">Done!</button>
+        </div>
+    </div>
     <div class="wrapper">
         <div class="left">
              <div class="title">

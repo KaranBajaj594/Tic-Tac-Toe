@@ -1,5 +1,6 @@
 import Game from "./Game.js";
 import GameView from "./GameView.js";
+var b=false;
 
 let game = new Game();
 let gameView = new GameView();
@@ -11,13 +12,18 @@ document.querySelector(".restart").addEventListener("click", ()=>{
     //gameView.updateBoard(game);
 });
 
-let tiles = document.querySelectorAll(".board-tile");
-tiles.forEach((tile) => {
-    tile.addEventListener("click", () => {
-        //console.log(tile.dataset.index);
-        onTileClick(tile.dataset.index);
+    let tiles = document.querySelectorAll(".board-tile");
+    tiles.forEach((tile) => {
+        tile.addEventListener("click", () => {
+            //console.log(tile.dataset.index);
+            if(b){
+                onTileClick(tile.dataset.index);
+            }else{
+                alert("Please click on Start New Game!!!");
+            }
+        });
     });
-});
+  
 
 
 
@@ -29,6 +35,8 @@ function onTileClick(i){
 }
 
 function onRestartClick(){
+    b=true;
+    document.querySelector(".ask").classList.add("visibility");
     game = new Game();
     gameView.updateBoard(game);
 }
